@@ -12,6 +12,7 @@ namespace TowerBlocks
 {
     public partial class Menu : Form
     {
+        private Game gameWindow;
         public Menu()
         {
             InitializeComponent();
@@ -19,7 +20,15 @@ namespace TowerBlocks
 
         private void Bu_start_Click(object sender, EventArgs e)
         {
+            gameWindow = new Game();
+            gameWindow.Show();
+            Hide();
+            gameWindow.FormClosed += GameWindow_FormClosed;
+        }
 
+        private void GameWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Show();
         }
     }
 }
