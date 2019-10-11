@@ -30,10 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.start_timer = new System.Windows.Forms.Timer(this.components);
             this.label_start = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.loop_timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -44,14 +43,6 @@
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "score:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(172, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // start_timer
             // 
@@ -68,17 +59,21 @@
             this.label_start.TabIndex = 2;
             this.label_start.Text = "START TIMER";
             // 
+            // loop_timer
+            // 
+            this.loop_timer.Interval = 20;
+            this.loop_timer.Tick += new System.EventHandler(this.Loop_timer_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label_start);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Name = "Game";
             this.Text = "Game";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blockDroped);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,8 +82,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer start_timer;
         private System.Windows.Forms.Label label_start;
+        private System.Windows.Forms.Timer loop_timer;
     }
 }
