@@ -13,3 +13,7 @@ A tower building game written in C#
 Tower Blocks was written in C#, using [Visual Studio](https://visualstudio.microsoft.com/), and uses [4.6.1 .NET framework](https://www.microsoft.com/en-us/download/details.aspx?id=49981).
 
 To access the full project, open **src/tower-blocks.sln**
+
+## Documentation
+
+You can access the documentation at [https://towerblocks.github.io/towerblocks/](https://towerblocks.github.io/towerblocks/)
