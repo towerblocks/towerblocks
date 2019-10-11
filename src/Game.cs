@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TowerBlocks
 {
-    public partial class Menu : Form
+    public partial class Game : Form
     {
-        public Menu()
+        public Game()
         {
             InitializeComponent();
-        }
-
-        private void Bu_start_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

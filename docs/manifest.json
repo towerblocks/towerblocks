@@ -24,7 +24,7 @@
           "hash": "RLFODiMJNHx9r6ffi1CUvQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,6 +48,18 @@
           "hash": "CoelGmQs6/yLwIOdKdBzig=="
         }
       },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/TowerBlocks.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TowerBlocks.Game.html",
+          "hash": "kCdYy75FBEijkvZvxlHExQ=="
+        }
+      },
       "is_incremental": false,
       "version": ""
     },
@@ -69,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.html",
-          "hash": "JBHfMjmt7b9whN7zkGXchQ=="
+          "hash": "Yk5ZtUbyxqbQFl9Gboq8mQ=="
         }
       },
       "is_incremental": false,
@@ -81,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "tHczfFnkn8tOLKhrkDGyLw=="
+          "hash": "T74ishK2WQd6pntOZjTs5g=="
         }
       },
       "is_incremental": false,
@@ -103,12 +115,10 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
+        "skipped_file_count": 0
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -119,23 +129,23 @@
           "skipped_file_count": 0
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 0
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 2,
-          "skipped_file_count": 0
+          "total_file_count": 3,
+          "skipped_file_count": 1
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

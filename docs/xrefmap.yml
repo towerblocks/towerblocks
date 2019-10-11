@@ -7,6 +7,38 @@ references:
   commentId: N:TowerBlocks
   fullName: TowerBlocks
   nameWithType: TowerBlocks
+- uid: TowerBlocks.Game
+  name: Game
+  href: api/TowerBlocks.Game.html
+  commentId: T:TowerBlocks.Game
+  fullName: TowerBlocks.Game
+  nameWithType: Game
+- uid: TowerBlocks.Game.#ctor
+  name: Game()
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game__ctor
+  commentId: M:TowerBlocks.Game.#ctor
+  fullName: TowerBlocks.Game.Game()
+  nameWithType: Game.Game()
+- uid: TowerBlocks.Game.#ctor*
+  name: Game
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game__ctor_
+  commentId: Overload:TowerBlocks.Game.#ctor
+  isSpec: "True"
+  fullName: TowerBlocks.Game.Game
+  nameWithType: Game.Game
+- uid: TowerBlocks.Game.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Dispose_System_Boolean_
+  commentId: M:TowerBlocks.Game.Dispose(System.Boolean)
+  fullName: TowerBlocks.Game.Dispose(System.Boolean)
+  nameWithType: Game.Dispose(Boolean)
+- uid: TowerBlocks.Game.Dispose*
+  name: Dispose
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Dispose_
+  commentId: Overload:TowerBlocks.Game.Dispose
+  isSpec: "True"
+  fullName: TowerBlocks.Game.Dispose
+  nameWithType: Game.Dispose
 - uid: TowerBlocks.Menu
   name: Menu
   href: api/TowerBlocks.Menu.html
