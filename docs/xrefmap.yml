@@ -1,0 +1,41 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: TowerBlocks
+  name: TowerBlocks
+  href: api/TowerBlocks.html
+  commentId: N:TowerBlocks
+  fullName: TowerBlocks
+  nameWithType: TowerBlocks
+- uid: TowerBlocks.Menu
+  name: Menu
+  href: api/TowerBlocks.Menu.html
+  commentId: T:TowerBlocks.Menu
+  fullName: TowerBlocks.Menu
+  nameWithType: Menu
+- uid: TowerBlocks.Menu.#ctor
+  name: Menu()
+  href: api/TowerBlocks.Menu.html#TowerBlocks_Menu__ctor
+  commentId: M:TowerBlocks.Menu.#ctor
+  fullName: TowerBlocks.Menu.Menu()
+  nameWithType: Menu.Menu()
+- uid: TowerBlocks.Menu.#ctor*
+  name: Menu
+  href: api/TowerBlocks.Menu.html#TowerBlocks_Menu__ctor_
+  commentId: Overload:TowerBlocks.Menu.#ctor
+  isSpec: "True"
+  fullName: TowerBlocks.Menu.Menu
+  nameWithType: Menu.Menu
+- uid: TowerBlocks.Menu.Dispose(System.Boolean)
+  name: Dispose(Boolean)
+  href: api/TowerBlocks.Menu.html#TowerBlocks_Menu_Dispose_System_Boolean_
+  commentId: M:TowerBlocks.Menu.Dispose(System.Boolean)
+  fullName: TowerBlocks.Menu.Dispose(System.Boolean)
+  nameWithType: Menu.Dispose(Boolean)
+- uid: TowerBlocks.Menu.Dispose*
+  name: Dispose
+  href: api/TowerBlocks.Menu.html#TowerBlocks_Menu_Dispose_
+  commentId: Overload:TowerBlocks.Menu.Dispose
+  isSpec: "True"
+  fullName: TowerBlocks.Menu.Dispose
+  nameWithType: Menu.Dispose
