@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Threading;
 
 namespace TowerBlocks
 {
@@ -16,6 +18,10 @@ namespace TowerBlocks
         {
             InitializeComponent();
         }
+        //new
+        List<Block> Blocks;
+        private int Speed = 6;
+        private int n;
 
         private const int TIME_TO_START_INITIAL = 3;
         private int timeToStart = TIME_TO_START_INITIAL;
@@ -29,19 +35,52 @@ namespace TowerBlocks
                 loop_timer.Start();
                 timeToStart = TIME_TO_START_INITIAL;
                 label_start.Visible = false;
+                //new
+                Blocks = new List<Block>();
+                n = 0;
             }
             label_start.Text = timeToStart + "";
         }
 
-
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
             // TODO: add loop logic here
+            
+            Blocks.Add(new Block());
+            Blocks.ElementAt(n).Left += Speed;
+            if (Blocks.ElementAt(n).Left <= 200 | Blocks.ElementAt(n).Left >= 500)
+            {
+                Speed *= -1;
+            }
+
         }
 
         private void blockDroped(object sender, KeyEventArgs e)
         {
-
+            /*
+            if (Dropping)
+            {
+                Blocks.ElementAt(0).Visible = true;
+                loop_timer.Start();
+                Dropping = false;
+            }
+            else
+            {
+                while (Blocks.ElementAt(n).Top+80<t)
+                {
+                    Blocks.ElementAt(n).Top += 5;
+                    Thread.Sleep(7);
+                }
+                if (n>0 && (Blocks.ElementAt(n).Left-OldLeftEq>50 || Blocks.ElementAt(n).Left-OldLeftEq<-50))
+                {
+                    loop_timer.Stop();
+                }
+                OldLeftEq = Blocks.ElementAt(n).Left;
+                n++;
+                t -= 80;
+            }*/
+         
         }
+        
     }
 }

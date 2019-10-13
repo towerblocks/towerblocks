@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Users/tomi/Desktop/towerblocks/src",
+  "source_base_path": "D:/Martin/Iskola/Programozás/github/towerblocks/src",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "yY9g+w5kVCcyUyCmuWYOxw=="
+          "hash": "MIzz/ThF0qU3pr952aCXjw=="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "RLFODiMJNHx9r6ffi1CUvQ=="
+          "hash": "RQWbZQbEJZdFUzkg0Y91Rw=="
         }
       },
       "is_incremental": true,
@@ -40,12 +40,56 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/jszab.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/jszab.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/szív.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/szív.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/towerblock.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/towerblock.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "CoelGmQs6/yLwIOdKdBzig=="
+          "hash": "F9t5s5BNeBE+8O1oZ2lVWw=="
         }
       },
       "is_incremental": true,
@@ -57,7 +101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.Game.html",
-          "hash": "kCdYy75FBEijkvZvxlHExQ=="
+          "hash": "Ds9qIM1H5kY25ShfXbArkw=="
         }
       },
       "is_incremental": true,
@@ -69,7 +113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.Menu.html",
-          "hash": "IDbAxriUkjw/+apELKGt9Q=="
+          "hash": "lCESca8Rg0TjUE8Klx740g=="
         }
       },
       "is_incremental": true,
@@ -124,6 +168,13 @@
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
