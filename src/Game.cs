@@ -47,7 +47,6 @@ namespace TowerBlocks
                 n = 0;
                 classBlock = new Block();
                 Blocks = new List<PictureBox>();
-                bu_Build.Enabled = true;
             }
             label_start.Text = timeToStart + "";
         }
@@ -55,6 +54,7 @@ namespace TowerBlocks
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
             // TODO: add loop logic here
+            bu_Build.Enabled = true;
             if (FirstBlock)
             {
                 CreatingNewBlock(Blocks, n);
@@ -105,6 +105,7 @@ namespace TowerBlocks
         private void bu_Build_Click(object sender, EventArgs e)
         {
             loop_timer.Stop();
+            bu_Build.Enabled = false;
             classBlock.Drop(ref Blocks, ref n);
             CreatingNewBlock(Blocks, n);
             loop_timer.Start();
