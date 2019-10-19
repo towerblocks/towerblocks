@@ -13,25 +13,20 @@ namespace TowerBlocks
 {
     class Block
     {
-        private const string ImageFile = "../images/towerblock.png";
-        public int Left { get; internal set; }
-        public Control Parent { get; set; }
-        public string ImageLocation { get; set; }
-        public int Top { get; set; }
-        public int Height { get; set; }
-        public int Width { get; set; }
-        public bool Visible { get; set; }
-        public Image Img { get; set; }
+        private const string ImageFile = "../../images/towerblock.png";
 
-        public Block()
+        public void NewBlock(List<PictureBox> Tomb)
         {
-            Left = 350;
-            Parent = Game.ActiveForm;
-            Img = Image.FromFile("D:/Martin/Iskola/Programozás/github/towerblocks/src/images/towerblock.png");
-            Top = 0;
-            Height = 80;
-            Width = 100;
-            Visible = true;
+            PictureBox Variable;
+            Variable = new PictureBox();
+            Variable.Parent = Game.ActiveForm;
+            Variable.Image = Image.FromFile(ImageFile);
+            Variable.Left = 350;
+            Variable.Top = 0;
+            Variable.Height = 80;
+            Variable.Width = 100;
+            Variable.Visible = true;
+            Tomb.Add(Variable);
         }
     }
 }

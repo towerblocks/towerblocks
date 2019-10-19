@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.label1 = new System.Windows.Forms.Label();
             this.start_timer = new System.Windows.Forms.Timer(this.components);
             this.label_start = new System.Windows.Forms.Label();
             this.loop_timer = new System.Windows.Forms.Timer(this.components);
             this.bu_Build = new System.Windows.Forms.Button();
-            this.PictureBoxBlock = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBlock)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,29 +74,18 @@
             this.bu_Build.Text = "Építs!";
             this.bu_Build.UseVisualStyleBackColor = true;
             // 
-            // PictureBoxBlock
-            // 
-            this.PictureBoxBlock.Image = ((System.Drawing.Image)(resources.GetObject("PictureBoxBlock.Image")));
-            this.PictureBoxBlock.Location = new System.Drawing.Point(213, 74);
-            this.PictureBoxBlock.Name = "PictureBoxBlock";
-            this.PictureBoxBlock.Size = new System.Drawing.Size(100, 50);
-            this.PictureBoxBlock.TabIndex = 4;
-            this.PictureBoxBlock.TabStop = false;
-            this.PictureBoxBlock.Visible = false;
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 918);
-            this.Controls.Add(this.PictureBoxBlock);
             this.Controls.Add(this.bu_Build);
             this.Controls.Add(this.label_start);
             this.Controls.Add(this.label1);
             this.Name = "Game";
             this.Text = "Game";
+            this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blockDroped);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxBlock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,6 +98,5 @@
         private System.Windows.Forms.Label label_start;
         private System.Windows.Forms.Timer loop_timer;
         private System.Windows.Forms.Button bu_Build;
-        private System.Windows.Forms.PictureBox PictureBoxBlock;
     }
 }

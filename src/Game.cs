@@ -19,9 +19,11 @@ namespace TowerBlocks
             InitializeComponent();
         }
         //new
-        List<Block> Blocks;
-        private int Speed = 6;
+        Block classBlock;
+        List<PictureBox> Blocks;
+        private int Speed = 8;
         private int n;
+        bool FirstBlock;
 
         private const int TIME_TO_START_INITIAL = 3;
         private int timeToStart = TIME_TO_START_INITIAL;
@@ -36,8 +38,9 @@ namespace TowerBlocks
                 timeToStart = TIME_TO_START_INITIAL;
                 label_start.Visible = false;
                 //new
-                Blocks = new List<Block>();
                 n = 0;
+                classBlock = new Block();
+                Blocks = new List<PictureBox>();
             }
             label_start.Text = timeToStart + "";
         }
@@ -45,10 +48,14 @@ namespace TowerBlocks
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
             // TODO: add loop logic here
-            
-            Blocks.Add(new Block());
-            Blocks.ElementAt(n).Left += Speed;
-            if (Blocks.ElementAt(n).Left <= 200 | Blocks.ElementAt(n).Left >= 500)
+            if (FirstBlock)
+            {
+                classBlock.NewBlock(Blocks);
+                Controls.Add(Blocks[n]);
+            }
+            FirstBlock = false;
+            Blocks[n].Left += Speed;
+            if (Blocks[n].Left <= 200 | Blocks[n].Left >= 500)
             {
                 Speed *= -1;
             }
@@ -81,6 +88,10 @@ namespace TowerBlocks
             }*/
          
         }
-        
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+            FirstBlock = true;
+        }
     }
 }
