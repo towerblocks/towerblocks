@@ -25,6 +25,12 @@ namespace TowerBlocks
         private int n;
         bool FirstBlock;
 
+        private void CreatingNewBlock(List<PictureBox>Tomb, int p_n)
+        {
+            classBlock.NewBlock(Tomb);
+            Controls.Add(Tomb[p_n]);
+        }
+
         private const int TIME_TO_START_INITIAL = 3;
         private int timeToStart = TIME_TO_START_INITIAL;
         private void Start_timer_Tick(object sender, EventArgs e)
@@ -41,6 +47,7 @@ namespace TowerBlocks
                 n = 0;
                 classBlock = new Block();
                 Blocks = new List<PictureBox>();
+                bu_Build.Enabled = true;
             }
             label_start.Text = timeToStart + "";
         }
@@ -50,8 +57,7 @@ namespace TowerBlocks
             // TODO: add loop logic here
             if (FirstBlock)
             {
-                classBlock.NewBlock(Blocks);
-                Controls.Add(Blocks[n]);
+                CreatingNewBlock(Blocks, n);
             }
             FirstBlock = false;
             Blocks[n].Left += Speed;
@@ -64,6 +70,8 @@ namespace TowerBlocks
 
         private void blockDroped(object sender, KeyEventArgs e)
         {
+
+
             /*
             if (Dropping)
             {
@@ -92,6 +100,14 @@ namespace TowerBlocks
         private void Game_Load(object sender, EventArgs e)
         {
             FirstBlock = true;
+        }
+
+        private void bu_Build_Click(object sender, EventArgs e)
+        {
+            loop_timer.Stop();
+            classBlock.Drop(ref Blocks, ref n);
+            CreatingNewBlock(Blocks, n);
+            loop_timer.Start();
         }
     }
 }

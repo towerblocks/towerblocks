@@ -34,6 +34,7 @@
             this.label_start = new System.Windows.Forms.Label();
             this.loop_timer = new System.Windows.Forms.Timer(this.components);
             this.bu_Build = new System.Windows.Forms.Button();
+            this.lbGround = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -67,22 +68,34 @@
             // 
             // bu_Build
             // 
-            this.bu_Build.Location = new System.Drawing.Point(33, 365);
+            this.bu_Build.Enabled = false;
+            this.bu_Build.Location = new System.Drawing.Point(12, 143);
             this.bu_Build.Name = "bu_Build";
             this.bu_Build.Size = new System.Drawing.Size(75, 23);
             this.bu_Build.TabIndex = 3;
             this.bu_Build.Text = "Építs!";
             this.bu_Build.UseVisualStyleBackColor = true;
+            this.bu_Build.Click += new System.EventHandler(this.bu_Build_Click);
+            // 
+            // lbGround
+            // 
+            this.lbGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbGround.Location = new System.Drawing.Point(175, 878);
+            this.lbGround.Name = "lbGround";
+            this.lbGround.Size = new System.Drawing.Size(426, 40);
+            this.lbGround.TabIndex = 4;
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 918);
+            this.Controls.Add(this.lbGround);
             this.Controls.Add(this.bu_Build);
             this.Controls.Add(this.label_start);
             this.Controls.Add(this.label1);
             this.Name = "Game";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blockDroped);
@@ -98,5 +111,6 @@
         private System.Windows.Forms.Label label_start;
         private System.Windows.Forms.Timer loop_timer;
         private System.Windows.Forms.Button bu_Build;
+        private System.Windows.Forms.Label lbGround;
     }
 }

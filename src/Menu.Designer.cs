@@ -59,6 +59,7 @@
             this.Controls.Add(this.bu_options);
             this.Controls.Add(this.bu_start);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
 

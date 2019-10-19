@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace TowerBlocks
 {
@@ -27,6 +28,16 @@ namespace TowerBlocks
             Variable.Width = 100;
             Variable.Visible = true;
             Tomb.Add(Variable);
+        }
+
+        public void Drop(ref List<PictureBox> Tomb, ref int n)
+        {
+            while (Tomb[n].Top+Tomb[n].Height<Game.ActiveForm.Height-Tomb[n].Height)
+            {
+                Tomb[n].Top += 5;
+                Thread.Sleep(7);
+            }
+            n++;
         }
     }
 }
