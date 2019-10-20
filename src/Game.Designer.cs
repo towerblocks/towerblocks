@@ -107,7 +107,6 @@
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TowerBlock";
-            this.Load += new System.EventHandler(this.Game_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blockDropped);
             this.ResumeLayout(false);
             this.PerformLayout();

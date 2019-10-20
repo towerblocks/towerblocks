@@ -19,45 +19,37 @@ namespace TowerBlocks
             InitializeComponent();
         }
         #region Fields
-        Block classBlock;
-        /// <summary>
-        /// A list where all blocks're stored
-        /// </summary>
-        List<PictureBox> Blocks;
-        private int Speed = 8;
-        private int n;
-        bool FirstBlock;
-        private bool Missed;
+        Block TowerClass;
         #endregion
 
         #region Methods
         /// <summary>
-        /// Method: Adding new element and making it visible
+        /// Method: Adding new element and adding it to the form
         /// </summary>
-        private void CreatingNewBlock(List<PictureBox>Tomb, int p_n)
+        private void CreatingNewBlock()
         {
-            classBlock.NewBlock(Tomb);
-            Controls.Add(Tomb[p_n]);
+            TowerClass.NewBlock();
+            Controls.Add(TowerClass.Blocks[TowerClass.n]);
         }
         /// <summary>
-        /// Method: Dropping the new element, checking the dropped one
+        /// Method: Dropping the given element, checking the dropped one
         /// </summary>
-        private void DroppingNewBlock(List<PictureBox>Tomb, ref int p_n, ref bool LogO)
+        private void DroppingNewBlock()
         {
-            classBlock.Drop(Tomb, p_n);
-            if (n>0)
+            TowerClass.Drop();
+            if (TowerClass.n>0)
             {
-                if (classBlock.BadlyDropped(Tomb, ref p_n))
+                if (TowerClass.BadlyDropped())
                 {
-                    LogO = true;
+                    TowerClass.Missed = true;
                 }
                 else
-                LogO = false;
+                TowerClass.Missed = false;
             }
             else
             {
-                LogO = false;
-                n++;
+                TowerClass.Missed = false;
+                TowerClass.n++;
             }
         }
         #endregion
@@ -67,7 +59,7 @@ namespace TowerBlocks
         private const int TIME_TO_START_INITIAL = 3;
         private int timeToStart = TIME_TO_START_INITIAL;
         /// <summary>
-        /// After a countdown, it makes a new class and a new list, with n=0
+        /// Countdown, the place where we invite the class (Block)
         /// </summary>
         private void Start_timer_Tick(object sender, EventArgs e)
         {
@@ -79,29 +71,27 @@ namespace TowerBlocks
                 loop_timer.Start();
                 timeToStart = TIME_TO_START_INITIAL;
                 label_start.Visible = false;
-                n = 0;
-                classBlock = new Block();
-                Blocks = new List<PictureBox>();
+                TowerClass = new Block();
             }
             label_start.Text = timeToStart + "";
         }
 
         /// <summary>
-        /// Slithering the new block
+        /// Slithering the given block
         /// </summary>
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
             bu_Build.Enabled = true;
-            if (FirstBlock)
+            if (TowerClass.WasThereFirstBlock)
             {
-                CreatingNewBlock(Blocks, n);
-                classBlock.Height = Height - Blocks[n].Height;
+                CreatingNewBlock();
+                TowerClass.Height = Height - TowerClass.Blocks[TowerClass.n].Height;
             }
-            FirstBlock = false;
-            Blocks[n].Left += Speed;
-            if (Blocks[n].Left <= 200 | Blocks[n].Left >= 500)
+            TowerClass.WasThereFirstBlock = false;
+            TowerClass.Blocks[TowerClass.n].Left += TowerClass.Speed;
+            if (TowerClass.Blocks[TowerClass.n].Left <= 200 | TowerClass.Blocks[TowerClass.n].Left >= 500)
             {
-                Speed *= -1;
+                TowerClass.Speed *= -1;
             }
 
         }
@@ -110,25 +100,23 @@ namespace TowerBlocks
         {
             
         }
-
-        private void Game_Load(object sender, EventArgs e)
-        {
-            FirstBlock = true;
-        }
         
+        /// <summary>
+        /// Building the tower
+        /// </summary>
         private void bu_Build_Click(object sender, EventArgs e)
         {
             loop_timer.Stop();
             bu_Build.Enabled = false;
-            DroppingNewBlock(Blocks, ref n, ref Missed);
-            if (Missed)
+            DroppingNewBlock();
+            if (TowerClass.Missed)
             {
                 MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 this.Close();
             }
             else
             {
-                CreatingNewBlock(Blocks, n);
+                CreatingNewBlock();
                 loop_timer.Start();
             }
         }

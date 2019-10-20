@@ -14,14 +14,42 @@ namespace TowerBlocks
 {
     class Block
     {
+        #region Fields
         private const string ImageFile = "../../images/towerblock.png";
+        /// <summary>
+        /// A list where all blocks're stored
+        /// </summary>
+        public List<PictureBox> Blocks { get; set; }
+        public int n { get; set; }
         public int Height { get; set; }
+        /// <summary>
+        /// It's true if the block's not dropped well
+        /// </summary>
+        public bool Missed { get; set; }
+        /// <summary>
+        /// After the first block's dropped, it'll be false
+        /// </summary>
+        public bool WasThereFirstBlock { get; set; }
+        public int Speed;
+        #endregion
+
+        /// <summary>
+        /// Setting everything defaulted
+        /// </summary>
+        public Block()
+        {
+            Blocks = new List<PictureBox>();
+            n = 0;
+            Missed = false;
+            WasThereFirstBlock = true;
+            Speed = 8;
+        }
 
         /// <summary>
         /// Adding a new element to the list
         /// </summary>
         /// <param name="Tomb">Parameter</param>
-        public void NewBlock(List<PictureBox> Tomb)
+        public void NewBlock()
         {
             PictureBox Variable;
             Variable = new PictureBox();
@@ -32,29 +60,29 @@ namespace TowerBlocks
             Variable.Height = 80;
             Variable.Width = 100;
             Variable.Visible = true;
-            Tomb.Add(Variable);
+            Blocks.Add(Variable);
         }
 
         /// <summary>
-        /// Dropping an element from the list
+        /// Dropping an given element
         /// </summary>
-        public void Drop(List<PictureBox> Tomb, int n)
+        public void Drop()
         {
-            while (Tomb[n].Top+Tomb[n].Height<Height)
+            while (Blocks[n].Top+Blocks[n].Height<Height)
             {
-                Tomb[n].Top += 5;
+                Blocks[n].Top += 5;
                 Thread.Sleep(7);
             }
-            Height -= Tomb[n].Height;
+            Height -= Blocks[n].Height;
             
         }
 
         /// <summary>
-        /// Seeing if the block's been badly dropped, if it's badly dropped -> returns "true"
+        /// Seeing if the given block's been badly dropped, if it's badly dropped -> returns "true"
         /// </summary>
-        public bool BadlyDropped(List<PictureBox> Tomb, ref int n)
+        public bool BadlyDropped()
         {
-            if (Tomb[n].Left-Tomb[n-1].Left>50 || Tomb[n].Left-Tomb[n-1].Left<-50)
+            if (Blocks[n].Left-Blocks[n-1].Left>50 || Blocks[n].Left-Blocks[n-1].Left<-50)
             {
                 return true;
             }
