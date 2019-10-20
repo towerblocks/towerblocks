@@ -18,21 +18,57 @@ namespace TowerBlocks
         {
             InitializeComponent();
         }
-        //new
+        #region Fields
         Block classBlock;
+        /// <summary>
+        /// A list where all blocks're stored
+        /// </summary>
         List<PictureBox> Blocks;
         private int Speed = 8;
         private int n;
         bool FirstBlock;
+        private bool Missed;
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// Method: Adding new element and making it visible
+        /// </summary>
         private void CreatingNewBlock(List<PictureBox>Tomb, int p_n)
         {
             classBlock.NewBlock(Tomb);
             Controls.Add(Tomb[p_n]);
         }
+        /// <summary>
+        /// Method: Dropping the new element, checking the dropped one
+        /// </summary>
+        private void DroppingNewBlock(List<PictureBox>Tomb, ref int p_n, ref bool LogO)
+        {
+            classBlock.Drop(Tomb, p_n);
+            if (n>0)
+            {
+                if (classBlock.BadlyDropped(Tomb, ref p_n))
+                {
+                    LogO = true;
+                }
+                else
+                LogO = false;
+            }
+            else
+            {
+                LogO = false;
+                n++;
+            }
+        }
+        #endregion
+
+        #region Program's activity
 
         private const int TIME_TO_START_INITIAL = 3;
         private int timeToStart = TIME_TO_START_INITIAL;
+        /// <summary>
+        /// After a countdown, it makes a new class and a new list, with n=0
+        /// </summary>
         private void Start_timer_Tick(object sender, EventArgs e)
         {
             label_start.Visible = true;
@@ -43,7 +79,6 @@ namespace TowerBlocks
                 loop_timer.Start();
                 timeToStart = TIME_TO_START_INITIAL;
                 label_start.Visible = false;
-                //new
                 n = 0;
                 classBlock = new Block();
                 Blocks = new List<PictureBox>();
@@ -51,13 +86,16 @@ namespace TowerBlocks
             label_start.Text = timeToStart + "";
         }
 
+        /// <summary>
+        /// Slithering the new block
+        /// </summary>
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
-            // TODO: add loop logic here
             bu_Build.Enabled = true;
             if (FirstBlock)
             {
                 CreatingNewBlock(Blocks, n);
+                classBlock.Height = Height - Blocks[n].Height;
             }
             FirstBlock = false;
             Blocks[n].Left += Speed;
@@ -68,47 +106,33 @@ namespace TowerBlocks
 
         }
 
-        private void blockDroped(object sender, KeyEventArgs e)
+        private void blockDropped(object sender, KeyEventArgs e)
         {
-
-
-            /*
-            if (Dropping)
-            {
-                Blocks.ElementAt(0).Visible = true;
-                loop_timer.Start();
-                Dropping = false;
-            }
-            else
-            {
-                while (Blocks.ElementAt(n).Top+80<t)
-                {
-                    Blocks.ElementAt(n).Top += 5;
-                    Thread.Sleep(7);
-                }
-                if (n>0 && (Blocks.ElementAt(n).Left-OldLeftEq>50 || Blocks.ElementAt(n).Left-OldLeftEq<-50))
-                {
-                    loop_timer.Stop();
-                }
-                OldLeftEq = Blocks.ElementAt(n).Left;
-                n++;
-                t -= 80;
-            }*/
-         
+            
         }
 
         private void Game_Load(object sender, EventArgs e)
         {
             FirstBlock = true;
         }
-
+        
         private void bu_Build_Click(object sender, EventArgs e)
         {
             loop_timer.Stop();
             bu_Build.Enabled = false;
-            classBlock.Drop(ref Blocks, ref n);
-            CreatingNewBlock(Blocks, n);
-            loop_timer.Start();
+            DroppingNewBlock(Blocks, ref n, ref Missed);
+            if (Missed)
+            {
+                MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.Close();
+            }
+            else
+            {
+                CreatingNewBlock(Blocks, n);
+                loop_timer.Start();
+            }
         }
+
+        #endregion
     }
 }
