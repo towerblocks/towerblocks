@@ -13,6 +13,7 @@ namespace TowerBlocks
         /// <summary>
         /// Level system for the game
         /// </summary>
+        public int money { get; set; }
         public int speedlevel {get; set; }
         public int blocklevel { get; set; }
         public int level { get; set; }
@@ -27,7 +28,8 @@ namespace TowerBlocks
         {
             speedlevel = 1;
             blocklevel = 1;
-            level = 0;
+            level = 1;
+            money = 100;
         }
         
         public bool Load()
@@ -41,11 +43,12 @@ namespace TowerBlocks
                     speedlevel = int.Parse(splited[0]);
                     blocklevel = int.Parse(splited[1]);
                     level = int.Parse(splited[2]);
+                    money = int.Parse(splited[3]);
                     return true;
                 }
                 catch
                 {
-                    dat[0] = speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString();
+                    dat[0] = speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString() + ";" + money.ToString();
                     File.WriteAllLines(path, dat);
                     return false;
                 }
@@ -53,7 +56,7 @@ namespace TowerBlocks
             else
             {
                 StreamWriter w = new StreamWriter(path);
-                w.WriteLine(speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString());
+                w.WriteLine(speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString() + ";" + money.ToString());
                 w.Close();
                 return true;
             }
@@ -63,7 +66,7 @@ namespace TowerBlocks
             try
             {
                 string[] dat = File.ReadAllLines(path);
-                dat[0] = speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString();
+                dat[0] = speedlevel.ToString() + ";" + blocklevel.ToString() + ";" + level.ToString() + ";" + money.ToString();
                 File.WriteAllLines(path, dat);
                 return true;
             }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bu_start = new System.Windows.Forms.Button();
             this.bu_options = new System.Windows.Forms.Button();
             this.Block_Update = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.Block_label = new System.Windows.Forms.Label();
             this.Speed_label = new System.Windows.Forms.Label();
             this.Level_label = new System.Windows.Forms.Label();
+            this.Money_label = new System.Windows.Forms.Label();
+            this.Tick = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // bu_start
@@ -73,7 +76,7 @@
             this.Block_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Block_Update.Location = new System.Drawing.Point(121, 291);
             this.Block_Update.Name = "Block_Update";
-            this.Block_Update.Size = new System.Drawing.Size(127, 44);
+            this.Block_Update.Size = new System.Drawing.Size(127, 86);
             this.Block_Update.TabIndex = 2;
             this.Block_Update.Text = "Update Block";
             this.Block_Update.UseVisualStyleBackColor = false;
@@ -87,7 +90,7 @@
             this.Speed_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Speed_Update.Location = new System.Drawing.Point(316, 291);
             this.Speed_Update.Name = "Speed_Update";
-            this.Speed_Update.Size = new System.Drawing.Size(127, 44);
+            this.Speed_Update.Size = new System.Drawing.Size(127, 86);
             this.Speed_Update.TabIndex = 3;
             this.Speed_Update.Text = "Update Speed";
             this.Speed_Update.UseVisualStyleBackColor = false;
@@ -101,7 +104,7 @@
             this.Level_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Level_update.Location = new System.Drawing.Point(502, 291);
             this.Level_update.Name = "Level_update";
-            this.Level_update.Size = new System.Drawing.Size(127, 44);
+            this.Level_update.Size = new System.Drawing.Size(127, 86);
             this.Level_update.TabIndex = 4;
             this.Level_update.Text = "Update Level";
             this.Level_update.UseVisualStyleBackColor = false;
@@ -131,12 +134,26 @@
             this.Level_label.Size = new System.Drawing.Size(0, 13);
             this.Level_label.TabIndex = 7;
             // 
+            // Money_label
+            // 
+            this.Money_label.AutoSize = true;
+            this.Money_label.Location = new System.Drawing.Point(64, 25);
+            this.Money_label.Name = "Money_label";
+            this.Money_label.Size = new System.Drawing.Size(0, 13);
+            this.Money_label.TabIndex = 8;
+            // 
+            // Tick
+            // 
+            this.Tick.Enabled = true;
+            this.Tick.Tick += new System.EventHandler(this.Tick_Tick);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Money_label);
             this.Controls.Add(this.Level_label);
             this.Controls.Add(this.Speed_label);
             this.Controls.Add(this.Block_label);
@@ -164,5 +181,7 @@
         private System.Windows.Forms.Label Block_label;
         private System.Windows.Forms.Label Speed_label;
         private System.Windows.Forms.Label Level_label;
+        private System.Windows.Forms.Label Money_label;
+        private System.Windows.Forms.Timer Tick;
     }
 }

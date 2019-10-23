@@ -21,6 +21,10 @@ namespace TowerBlocks
             Speed_label.Text = "Level: " + Update.speedlevel.ToString();
             Block_label.Text = "Level: " + Update.blocklevel.ToString();
             Level_label.Text = "Level: " + Update.level.ToString();
+            Money_label.Text = "Money: " + Update.money.ToString();
+            Block_Update.Text = "Update Block \n" + (Update.blocklevel * Update.blocklevel * 15).ToString();
+            Speed_Update.Text = "Update Speed \n" + (Update.speedlevel * Update.speedlevel * 15).ToString();
+            Level_update.Text = "Update Level \n" + (Update.level * Update.level * 200).ToString();
         }
 
         private void Bu_start_Click(object sender, EventArgs e)
@@ -43,23 +47,53 @@ namespace TowerBlocks
 
         private void Block_Update_Click(object sender, EventArgs e)
         {
-            Update.blocklevel += 1;
-            Update.save();
-            Block_label.Text = "Level: " + Update.blocklevel.ToString();
+            if (Update.money > Update.blocklevel * Update.blocklevel * 15)
+            {
+                Update.money -= Update.blocklevel * Update.blocklevel * 15;
+                Update.blocklevel += 1;
+                Update.save();
+                Block_label.Text = "Level: " + Update.blocklevel.ToString();
+                Money_label.Text = "Money: " + Update.money.ToString();
+                Block_Update.Text = "Update Block \n" + (Update.blocklevel * Update.blocklevel * 15).ToString();
+            }
         }
 
         private void Speed_Update_Click(object sender, EventArgs e)
         {
-            Update.speedlevel += 1;
-            Update.save();
-            Speed_label.Text = "Level: " + Update.speedlevel.ToString();
+            if (Update.money > Update.speedlevel * Update.speedlevel * 15)
+            {
+                Update.money -= Update.speedlevel * Update.speedlevel * 15;
+                Update.speedlevel += 1;
+                Update.save();
+                Speed_label.Text = "Level: " + Update.speedlevel.ToString();
+                Money_label.Text = "Money: " + Update.money.ToString();
+                Speed_Update.Text = "Update Speed \n" + (Update.speedlevel * Update.speedlevel * 15).ToString();
+            }
         }
 
         private void Level_update_Click(object sender, EventArgs e)
         {
-            Update.level += 1;
-            Update.save();;
+            if (Update.money > Update.level * Update.level * 200)
+            {
+                Update.money -= Update.level * Update.level * 200;
+                Update.level += 1;
+                Update.save();
+                Level_label.Text = "Level: " + Update.level.ToString();
+                Money_label.Text = "Money: " + Update.money.ToString();
+                Level_update.Text = "Update Level \n" + (Update.level * Update.level * 15).ToString();
+            }
+        }
+
+        private void Tick_Tick(object sender, EventArgs e)
+        {
+            Update.Load();
+            Speed_label.Text = "Level: " + Update.speedlevel.ToString();
+            Block_label.Text = "Level: " + Update.blocklevel.ToString();
             Level_label.Text = "Level: " + Update.level.ToString();
+            Money_label.Text = "Money: " + Update.money.ToString();
+            Block_Update.Text = "Update Block \n" + (Update.blocklevel * Update.blocklevel * 15).ToString();
+            Speed_Update.Text = "Update Speed \n" + (Update.speedlevel * Update.speedlevel * 15).ToString();
+            Level_update.Text = "Update Level \n" + (Update.level * Update.level * 200).ToString();
         }
     }
 }

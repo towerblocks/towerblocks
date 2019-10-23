@@ -20,6 +20,7 @@ namespace TowerBlocks
         }
         #region Fields
         Block TowerClass;
+        Updates Update = new Updates();
         #endregion
 
         #region Methods
@@ -116,6 +117,9 @@ namespace TowerBlocks
             }
             else
             {
+                Update.Load();
+                Update.money += 15;
+                Update.save();
                 CreatingNewBlock();
                 loop_timer.Start();
             }
