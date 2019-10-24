@@ -32,18 +32,14 @@ namespace TowerBlocks
             TowerClass.NewBlock();
             Controls.Add(TowerClass.LastBlock);
         }
-
+        int cameraMovementAmount;
         private void moveCamera()
         {
+            cameraMovement_timer.Enabled = true;
             if (TowerClass.NumberOfBlocks > 3 && TowerClass.NumberOfBlocks % 2 == 0)
             {
-                int blockHeight = TowerClass.Blocks[0].Height * 2;
-                TowerClass.Height += blockHeight;
-                foreach (PictureBox b in TowerClass.Blocks)
-                {
-                    b.Top += blockHeight;
-                }
-                lbGround.Top += blockHeight;
+                cameraMovementAmount = TowerClass.Blocks[0].Height * 2;
+                cameraMovement_timer.Enabled = true;
             }
         }
 
@@ -133,5 +129,24 @@ namespace TowerBlocks
         }
 
         #endregion
+
+        private void cameraMovement_timer_Tick(object sender, EventArgs e)
+        {
+            
+            int currentCamMoveAmount = Math.Min(10, cameraMovementAmount);
+            if (cameraMovementAmount <= 0)
+            {
+                cameraMovement_timer.Enabled = false;
+            } else
+            {
+                cameraMovementAmount -= currentCamMoveAmount;
+                TowerClass.Height += currentCamMoveAmount;
+                for (int i = 0; i < TowerClass.NumberOfBlocks; i++)
+                {
+                    TowerClass.Blocks[i].Top += currentCamMoveAmount;
+                }
+                lbGround.Top += currentCamMoveAmount;
+            }
+        }
     }
 }

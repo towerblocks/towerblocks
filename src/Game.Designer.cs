@@ -35,6 +35,7 @@
             this.loop_timer = new System.Windows.Forms.Timer(this.components);
             this.bu_Build = new System.Windows.Forms.Button();
             this.lbGround = new System.Windows.Forms.Label();
+            this.cameraMovement_timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -93,6 +94,11 @@
             this.lbGround.Size = new System.Drawing.Size(426, 40);
             this.lbGround.TabIndex = 4;
             // 
+            // cameraMovement_timer
+            // 
+            this.cameraMovement_timer.Interval = 10;
+            this.cameraMovement_timer.Tick += new System.EventHandler(this.cameraMovement_timer_Tick);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,5 +127,6 @@
         private System.Windows.Forms.Timer loop_timer;
         private System.Windows.Forms.Button bu_Build;
         private System.Windows.Forms.Label lbGround;
+        private System.Windows.Forms.Timer cameraMovement_timer;
     }
 }
