@@ -21,6 +21,7 @@ namespace TowerBlocks
         #region Fields
         Block TowerClass;
         Updates updates = new Updates();
+        private bool candrop = false;
         #endregion
 
         #region Methods
@@ -33,14 +34,10 @@ namespace TowerBlocks
             Controls.Add(TowerClass.LastBlock);
         }
         int cameraMovementAmount;
-        private void moveCamera()
+        private void moveCamera(int numberOfBlocks)
         {
-            cameraMovement_timer.Enabled = true;
-            if (TowerClass.NumberOfBlocks > 3 && TowerClass.NumberOfBlocks % 2 == 0)
-            {
-                cameraMovementAmount = TowerClass.Blocks[0].Height * 2;
-                cameraMovement_timer.Enabled = true;
-            }
+             cameraMovementAmount = TowerClass.Blocks[0].Height * numberOfBlocks;
+             cameraMovementTimer.Enabled = true;
         }
 
         /// <summary>
@@ -54,7 +51,11 @@ namespace TowerBlocks
             TowerClass.Missed = notFirstBlock && TowerClass.BadlyDropped();
             if (!TowerClass.Missed) TowerClass.NumberOfBlocks += 1;
 
-            moveCamera();
+            const int NUMBER_OF_BLOCKS = 2;
+            if (TowerClass.NumberOfBlocks > 3 && TowerClass.NumberOfBlocks % NUMBER_OF_BLOCKS == 0)
+            {
+                moveCamera(NUMBER_OF_BLOCKS);
+            }
         }
         #endregion
 
@@ -85,7 +86,7 @@ namespace TowerBlocks
         /// </summary>
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
-            bu_Build.Enabled = true;
+            candrop = true;
             if (TowerClass.NotYetCreatedFirstBlock)
             {
                 CreatingNewBlock();
@@ -99,45 +100,59 @@ namespace TowerBlocks
             }
 
         }
-
-        private void blockDropped(object sender, KeyEventArgs e)
-        {
-            
-        }
         
         /// <summary>
         /// Building the tower
         /// </summary>
         private void bu_Build_Click(object sender, EventArgs e)
         {
-            loop_timer.Stop();
-            bu_Build.Enabled = false;
-            DroppingNewBlock();
-            if (TowerClass.Missed)
-            {
-                MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                this.Close();
-            }
-            else
-            {
-                updates.Load();
-                updates.money += 15;
-                updates.save();
-                CreatingNewBlock();
-                loop_timer.Start();
-            }
+           
         }
 
         #endregion
 
-        private void cameraMovement_timer_Tick(object sender, EventArgs e)
+
+        private void Game_Click(object sender, EventArgs e)
         {
-            
+            if (candrop == true)
+            {
+                candrop = false;
+                loop_timer.Stop();
+                DroppingNewBlock();
+                if (TowerClass.Missed)
+                {
+                    MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    this.Close();
+                }
+                else
+                {
+                    updates.Load();
+                    updates.money += 2;
+                    updates.save();
+                    CreatingNewBlock();
+                    loop_timer.Start();
+
+                }
+            }
+        }
+
+        private void Game_Clicks(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                EventArgs a = new EventArgs();
+                Game_Click(sender, a);
+            }
+        }
+
+        private void cameraMovementTimer_Tick(object sender, EventArgs e)
+        {
             int currentCamMoveAmount = Math.Min(10, cameraMovementAmount);
             if (cameraMovementAmount <= 0)
             {
-                cameraMovement_timer.Enabled = false;
-            } else
+                cameraMovementTimer.Enabled = false;
+            }
+            else
             {
                 cameraMovementAmount -= currentCamMoveAmount;
                 TowerClass.Height += currentCamMoveAmount;
