@@ -21,20 +21,32 @@ namespace TowerBlocks
         #region Fields
         Block TowerClass;
         Updates updates = new Updates();
-        private bool candrop = false;
+        /// <summary>
+        /// Blocks spawning new cube until latest arrives
+        /// </summary>
+        public bool candrop = false;
         #endregion
 
         #region Methods
         /// <summary>
         /// Method: Adding new element and adding it to the form
         /// </summary>
-        private void CreatingNewBlock()
+        public void CreatingNewBlock()
         {
             TowerClass.NewBlock();
             Controls.Add(TowerClass.LastBlock);
         }
-        int cameraMovementAmount;
-        private void moveCamera(int numberOfBlocks)
+        /// <summary>
+        /// amount to move camera by (used by animation)
+        /// </summary>
+        public int cameraMovementAmount;
+        /// <summary>
+        /// Triggers a camera movement event
+        /// <paramref name="numberOfBlocks"/>
+        /// number of blocks to move the camera by
+        /// </summary>
+        /// <param name="numberOfBlocks"></param>
+        public void moveCamera(int numberOfBlocks)
         {
              cameraMovementAmount = TowerClass.Blocks[0].Height * numberOfBlocks;
              cameraMovementTimer.Enabled = true;
@@ -43,7 +55,7 @@ namespace TowerBlocks
         /// <summary>
         /// Method: Dropping the given element, checking the dropped one
         /// </summary>
-        private void DroppingNewBlock()
+        public void DroppingNewBlock()
         {
             TowerClass.Drop();
             bool notFirstBlock = TowerClass.NumberOfBlocks > 0;
@@ -61,12 +73,18 @@ namespace TowerBlocks
 
         #region Program's activity
 
-        private const int TIME_TO_START_INITIAL = 3;
-        private int timeToStart = TIME_TO_START_INITIAL;
+        /// <summary>
+        /// amount to count down - full
+        /// </summary>
+        public const int TIME_TO_START_INITIAL = 3;
+        /// <summary>
+        /// amount left of count down - current
+        /// </summary>
+        public int timeToStart = TIME_TO_START_INITIAL;
         /// <summary>
         /// Countdown, the place where we invite the class (Block)
         /// </summary>
-        private void Start_timer_Tick(object sender, EventArgs e)
+        public void Start_timer_Tick(object sender, EventArgs e)
         {
             label_start.Visible = true;
             timeToStart -= 1;
@@ -84,7 +102,7 @@ namespace TowerBlocks
         /// <summary>
         /// Slithering the given block
         /// </summary>
-        private void Loop_timer_Tick(object sender, EventArgs e)
+        public void Loop_timer_Tick(object sender, EventArgs e)
         {
             candrop = true;
             if (TowerClass.NotYetCreatedFirstBlock)
@@ -100,16 +118,7 @@ namespace TowerBlocks
             }
 
         }
-        
-        /// <summary>
-        /// Building the tower
-        /// </summary>
-        private void bu_Build_Click(object sender, EventArgs e)
-        {
-           
-        }
 
-        #endregion
 
 
         private void Game_Click(object sender, EventArgs e)
@@ -136,7 +145,10 @@ namespace TowerBlocks
             }
         }
 
-        private void Game_Clicks(object sender, KeyEventArgs e)
+        /// <summary>
+        /// Handler for dropping by space
+        /// </summary>
+        public void Game_Clicks(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
@@ -145,7 +157,10 @@ namespace TowerBlocks
             }
         }
 
-        private void cameraMovementTimer_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// Handler for animated camera movement
+        /// </summary>
+        public void cameraMovementTimer_Tick(object sender, EventArgs e)
         {
             int currentCamMoveAmount = Math.Min(10, cameraMovementAmount);
             if (cameraMovementAmount <= 0)
@@ -163,5 +178,6 @@ namespace TowerBlocks
                 lbGround.Top += currentCamMoveAmount;
             }
         }
+        #endregion
     }
 }

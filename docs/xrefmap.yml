@@ -26,6 +26,44 @@ references:
   isSpec: "True"
   fullName: TowerBlocks.Game.Game
   nameWithType: Game.Game
+- uid: TowerBlocks.Game.cameraMovementAmount
+  name: cameraMovementAmount
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_cameraMovementAmount
+  commentId: F:TowerBlocks.Game.cameraMovementAmount
+  fullName: TowerBlocks.Game.cameraMovementAmount
+  nameWithType: Game.cameraMovementAmount
+- uid: TowerBlocks.Game.cameraMovementTimer_Tick(System.Object,System.EventArgs)
+  name: cameraMovementTimer_Tick(Object, EventArgs)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_cameraMovementTimer_Tick_System_Object_System_EventArgs_
+  commentId: M:TowerBlocks.Game.cameraMovementTimer_Tick(System.Object,System.EventArgs)
+  fullName: TowerBlocks.Game.cameraMovementTimer_Tick(System.Object, System.EventArgs)
+  nameWithType: Game.cameraMovementTimer_Tick(Object, EventArgs)
+- uid: TowerBlocks.Game.cameraMovementTimer_Tick*
+  name: cameraMovementTimer_Tick
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_cameraMovementTimer_Tick_
+  commentId: Overload:TowerBlocks.Game.cameraMovementTimer_Tick
+  isSpec: "True"
+  fullName: TowerBlocks.Game.cameraMovementTimer_Tick
+  nameWithType: Game.cameraMovementTimer_Tick
+- uid: TowerBlocks.Game.candrop
+  name: candrop
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_candrop
+  commentId: F:TowerBlocks.Game.candrop
+  fullName: TowerBlocks.Game.candrop
+  nameWithType: Game.candrop
+- uid: TowerBlocks.Game.CreatingNewBlock
+  name: CreatingNewBlock()
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_CreatingNewBlock
+  commentId: M:TowerBlocks.Game.CreatingNewBlock
+  fullName: TowerBlocks.Game.CreatingNewBlock()
+  nameWithType: Game.CreatingNewBlock()
+- uid: TowerBlocks.Game.CreatingNewBlock*
+  name: CreatingNewBlock
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_CreatingNewBlock_
+  commentId: Overload:TowerBlocks.Game.CreatingNewBlock
+  isSpec: "True"
+  fullName: TowerBlocks.Game.CreatingNewBlock
+  nameWithType: Game.CreatingNewBlock
 - uid: TowerBlocks.Game.Dispose(System.Boolean)
   name: Dispose(Boolean)
   href: api/TowerBlocks.Game.html#TowerBlocks_Game_Dispose_System_Boolean_
@@ -39,6 +77,83 @@ references:
   isSpec: "True"
   fullName: TowerBlocks.Game.Dispose
   nameWithType: Game.Dispose
+- uid: TowerBlocks.Game.DroppingNewBlock
+  name: DroppingNewBlock()
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_DroppingNewBlock
+  commentId: M:TowerBlocks.Game.DroppingNewBlock
+  fullName: TowerBlocks.Game.DroppingNewBlock()
+  nameWithType: Game.DroppingNewBlock()
+- uid: TowerBlocks.Game.DroppingNewBlock*
+  name: DroppingNewBlock
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_DroppingNewBlock_
+  commentId: Overload:TowerBlocks.Game.DroppingNewBlock
+  isSpec: "True"
+  fullName: TowerBlocks.Game.DroppingNewBlock
+  nameWithType: Game.DroppingNewBlock
+- uid: TowerBlocks.Game.Game_Clicks(System.Object,System.Windows.Forms.KeyEventArgs)
+  name: Game_Clicks(Object, KeyEventArgs)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Game_Clicks_System_Object_System_Windows_Forms_KeyEventArgs_
+  commentId: M:TowerBlocks.Game.Game_Clicks(System.Object,System.Windows.Forms.KeyEventArgs)
+  fullName: TowerBlocks.Game.Game_Clicks(System.Object, System.Windows.Forms.KeyEventArgs)
+  nameWithType: Game.Game_Clicks(Object, KeyEventArgs)
+- uid: TowerBlocks.Game.Game_Clicks*
+  name: Game_Clicks
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Game_Clicks_
+  commentId: Overload:TowerBlocks.Game.Game_Clicks
+  isSpec: "True"
+  fullName: TowerBlocks.Game.Game_Clicks
+  nameWithType: Game.Game_Clicks
+- uid: TowerBlocks.Game.Loop_timer_Tick(System.Object,System.EventArgs)
+  name: Loop_timer_Tick(Object, EventArgs)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Loop_timer_Tick_System_Object_System_EventArgs_
+  commentId: M:TowerBlocks.Game.Loop_timer_Tick(System.Object,System.EventArgs)
+  fullName: TowerBlocks.Game.Loop_timer_Tick(System.Object, System.EventArgs)
+  nameWithType: Game.Loop_timer_Tick(Object, EventArgs)
+- uid: TowerBlocks.Game.Loop_timer_Tick*
+  name: Loop_timer_Tick
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Loop_timer_Tick_
+  commentId: Overload:TowerBlocks.Game.Loop_timer_Tick
+  isSpec: "True"
+  fullName: TowerBlocks.Game.Loop_timer_Tick
+  nameWithType: Game.Loop_timer_Tick
+- uid: TowerBlocks.Game.moveCamera(System.Int32)
+  name: moveCamera(Int32)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_moveCamera_System_Int32_
+  commentId: M:TowerBlocks.Game.moveCamera(System.Int32)
+  fullName: TowerBlocks.Game.moveCamera(System.Int32)
+  nameWithType: Game.moveCamera(Int32)
+- uid: TowerBlocks.Game.moveCamera*
+  name: moveCamera
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_moveCamera_
+  commentId: Overload:TowerBlocks.Game.moveCamera
+  isSpec: "True"
+  fullName: TowerBlocks.Game.moveCamera
+  nameWithType: Game.moveCamera
+- uid: TowerBlocks.Game.Start_timer_Tick(System.Object,System.EventArgs)
+  name: Start_timer_Tick(Object, EventArgs)
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Start_timer_Tick_System_Object_System_EventArgs_
+  commentId: M:TowerBlocks.Game.Start_timer_Tick(System.Object,System.EventArgs)
+  fullName: TowerBlocks.Game.Start_timer_Tick(System.Object, System.EventArgs)
+  nameWithType: Game.Start_timer_Tick(Object, EventArgs)
+- uid: TowerBlocks.Game.Start_timer_Tick*
+  name: Start_timer_Tick
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_Start_timer_Tick_
+  commentId: Overload:TowerBlocks.Game.Start_timer_Tick
+  isSpec: "True"
+  fullName: TowerBlocks.Game.Start_timer_Tick
+  nameWithType: Game.Start_timer_Tick
+- uid: TowerBlocks.Game.TIME_TO_START_INITIAL
+  name: TIME_TO_START_INITIAL
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_TIME_TO_START_INITIAL
+  commentId: F:TowerBlocks.Game.TIME_TO_START_INITIAL
+  fullName: TowerBlocks.Game.TIME_TO_START_INITIAL
+  nameWithType: Game.TIME_TO_START_INITIAL
+- uid: TowerBlocks.Game.timeToStart
+  name: timeToStart
+  href: api/TowerBlocks.Game.html#TowerBlocks_Game_timeToStart
+  commentId: F:TowerBlocks.Game.timeToStart
+  fullName: TowerBlocks.Game.timeToStart
+  nameWithType: Game.timeToStart
 - uid: TowerBlocks.Menu
   name: Menu
   href: api/TowerBlocks.Menu.html

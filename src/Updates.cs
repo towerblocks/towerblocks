@@ -32,6 +32,10 @@ namespace TowerBlocks
             money = 100;
         }
         
+        /// <summary>
+        /// Load config
+        /// </summary>
+        /// <returns></returns>
         public bool Load()
         {
             if(File.Exists(path))
@@ -61,6 +65,11 @@ namespace TowerBlocks
                 return true;
             }
         }
+
+        /// <summary>
+        /// save config
+        /// </summary>
+        /// <returns></returns>
         public bool save()
         {
             try

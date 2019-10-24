@@ -15,7 +15,10 @@ namespace TowerBlocks
     class Block
     {
         #region Fields
-        private const string IMAGE_FILE_PATH = "../../images/towerblock.png";
+        /// <summary>
+        /// Path to the image for the blocks
+        /// </summary>
+        public const string IMAGE_FILE_PATH = "../../images/towerblock.png";
         /// <summary>
         /// A list where all blocks're stored
         /// </summary>

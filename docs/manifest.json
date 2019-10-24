@@ -9,10 +9,10 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "yY9g+w5kVCcyUyCmuWYOxw=="
+          "hash": "P4dYQA8AmI2QzGqoyl2yhA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "RLFODiMJNHx9r6ffi1CUvQ=="
+          "hash": "LbyTnQj7h3f1oH58j4R4/Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -89,10 +89,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "CoelGmQs6/yLwIOdKdBzig=="
+          "hash": "Zc8wkMwDTzw5IuzHro+GTA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -101,10 +101,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.Game.html",
-          "hash": "xE6Hj7dwmDWLFF2G0mDjHA=="
+          "hash": "+59cMicsJOThYnSoo97Y1Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -113,10 +113,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.Menu.html",
-          "hash": "74mOqsQFcQG4TbbgiI90zQ=="
+          "hash": "EG+4woy8XDH9AnHU5cyIQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -125,10 +125,10 @@
       "output": {
         ".html": {
           "relative_path": "api/TowerBlocks.html",
-          "hash": "Yk5ZtUbyxqbQFl9Gboq8mQ=="
+          "hash": "KspH+94/0jH7i2mjc8KkhA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -159,17 +159,24 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because docfx version changed from 2.45.1.0 to 2.46.0.0.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "DocfxVersionChanged"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
-          "total_file_count": 0,
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
@@ -179,17 +186,12 @@
           "total_file_count": 0,
           "skipped_file_count": 0
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
+          "total_file_count": 0,
+          "skipped_file_count": 0
         }
       }
     },
