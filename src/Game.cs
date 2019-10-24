@@ -32,6 +32,21 @@ namespace TowerBlocks
             TowerClass.NewBlock();
             Controls.Add(TowerClass.LastBlock);
         }
+
+        private void moveCamera()
+        {
+            if (TowerClass.NumberOfBlocks > 3 && TowerClass.NumberOfBlocks % 2 == 0)
+            {
+                int blockHeight = TowerClass.Blocks[0].Height * 2;
+                TowerClass.Height += blockHeight;
+                foreach (PictureBox b in TowerClass.Blocks)
+                {
+                    b.Top += blockHeight;
+                }
+                lbGround.Top += blockHeight;
+            }
+        }
+
         /// <summary>
         /// Method: Dropping the given element, checking the dropped one
         /// </summary>
@@ -42,6 +57,8 @@ namespace TowerBlocks
             // first block cannot be missed
             TowerClass.Missed = notFirstBlock && TowerClass.BadlyDropped();
             if (!TowerClass.Missed) TowerClass.NumberOfBlocks += 1;
+
+            moveCamera();
         }
         #endregion
 
