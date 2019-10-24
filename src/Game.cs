@@ -21,6 +21,7 @@ namespace TowerBlocks
         #region Fields
         Block TowerClass;
         Updates updates = new Updates();
+        private bool candrop = true;
         #endregion
 
         #region Methods
@@ -32,21 +33,6 @@ namespace TowerBlocks
             TowerClass.NewBlock();
             Controls.Add(TowerClass.LastBlock);
         }
-
-        private void moveCamera()
-        {
-            if (TowerClass.NumberOfBlocks > 3 && TowerClass.NumberOfBlocks % 2 == 0)
-            {
-                int blockHeight = TowerClass.Blocks[0].Height * 2;
-                TowerClass.Height += blockHeight;
-                foreach (PictureBox b in TowerClass.Blocks)
-                {
-                    b.Top += blockHeight;
-                }
-                lbGround.Top += blockHeight;
-            }
-        }
-
         /// <summary>
         /// Method: Dropping the given element, checking the dropped one
         /// </summary>
@@ -57,8 +43,6 @@ namespace TowerBlocks
             // first block cannot be missed
             TowerClass.Missed = notFirstBlock && TowerClass.BadlyDropped();
             if (!TowerClass.Missed) TowerClass.NumberOfBlocks += 1;
-
-            moveCamera();
         }
         #endregion
 
@@ -89,7 +73,7 @@ namespace TowerBlocks
         /// </summary>
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
-            bu_Build.Enabled = true;
+            candrop = true;
             if (TowerClass.NotYetCreatedFirstBlock)
             {
                 CreatingNewBlock();
@@ -103,35 +87,48 @@ namespace TowerBlocks
             }
 
         }
-
-        private void blockDropped(object sender, KeyEventArgs e)
-        {
-            
-        }
         
         /// <summary>
         /// Building the tower
         /// </summary>
         private void bu_Build_Click(object sender, EventArgs e)
         {
-            loop_timer.Stop();
-            bu_Build.Enabled = false;
-            DroppingNewBlock();
-            if (TowerClass.Missed)
-            {
-                MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                this.Close();
-            }
-            else
-            {
-                updates.Load();
-                updates.money += 15;
-                updates.save();
-                CreatingNewBlock();
-                loop_timer.Start();
-            }
+           
         }
 
         #endregion
+
+        private void Game_Click(object sender, EventArgs e)
+        {
+            if (candrop == true)
+            {
+                candrop = false;
+                loop_timer.Stop();
+                DroppingNewBlock();
+                if (TowerClass.Missed)
+                {
+                    MessageBox.Show("You missed that one...", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    this.Close();
+                }
+                else
+                {
+                    updates.Load();
+                    updates.money += 2;
+                    updates.save();
+                    CreatingNewBlock();
+                    loop_timer.Start();
+
+                }
+            }
+        }
+
+        private void Game_Clicks(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                EventArgs a = new EventArgs();
+                Game_Click(sender, a);
+            }
+        }
     }
 }

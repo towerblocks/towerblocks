@@ -33,7 +33,6 @@
             this.start_timer = new System.Windows.Forms.Timer(this.components);
             this.label_start = new System.Windows.Forms.Label();
             this.loop_timer = new System.Windows.Forms.Timer(this.components);
-            this.bu_Build = new System.Windows.Forms.Button();
             this.lbGround = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -70,21 +69,6 @@
             this.loop_timer.Interval = 20;
             this.loop_timer.Tick += new System.EventHandler(this.Loop_timer_Tick);
             // 
-            // bu_Build
-            // 
-            this.bu_Build.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.bu_Build.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bu_Build.Enabled = false;
-            this.bu_Build.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bu_Build.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bu_Build.Location = new System.Drawing.Point(12, 143);
-            this.bu_Build.Name = "bu_Build";
-            this.bu_Build.Size = new System.Drawing.Size(101, 35);
-            this.bu_Build.TabIndex = 3;
-            this.bu_Build.Text = "Építs!";
-            this.bu_Build.UseVisualStyleBackColor = false;
-            this.bu_Build.Click += new System.EventHandler(this.bu_Build_Click);
-            // 
             // lbGround
             // 
             this.lbGround.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -100,14 +84,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(784, 918);
             this.Controls.Add(this.lbGround);
-            this.Controls.Add(this.bu_Build);
             this.Controls.Add(this.label_start);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TowerBlock";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.blockDropped);
+            this.Click += new System.EventHandler(this.Game_Click);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_Clicks);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,7 +103,6 @@
         private System.Windows.Forms.Timer start_timer;
         private System.Windows.Forms.Label label_start;
         private System.Windows.Forms.Timer loop_timer;
-        private System.Windows.Forms.Button bu_Build;
         private System.Windows.Forms.Label lbGround;
     }
 }
