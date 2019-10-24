@@ -20,7 +20,7 @@ namespace TowerBlocks
         }
         #region Fields
         Block TowerClass;
-        Updates Update = new Updates();
+        Updates updates = new Updates();
         #endregion
 
         #region Methods
@@ -30,7 +30,7 @@ namespace TowerBlocks
         private void CreatingNewBlock()
         {
             TowerClass.NewBlock();
-            Controls.Add(TowerClass.Blocks[TowerClass.n]);
+            Controls.Add(TowerClass.LastBlock);
         }
         /// <summary>
         /// Method: Dropping the given element, checking the dropped one
@@ -38,20 +38,10 @@ namespace TowerBlocks
         private void DroppingNewBlock()
         {
             TowerClass.Drop();
-            if (TowerClass.n>0)
-            {
-                if (TowerClass.BadlyDropped())
-                {
-                    TowerClass.Missed = true;
-                }
-                else
-                TowerClass.Missed = false;
-            }
-            else
-            {
-                TowerClass.Missed = false;
-                TowerClass.n++;
-            }
+            bool notFirstBlock = TowerClass.NumberOfBlocks > 0;
+            // first block cannot be missed
+            TowerClass.Missed = notFirstBlock && TowerClass.BadlyDropped();
+            if (!TowerClass.Missed) TowerClass.NumberOfBlocks += 1;
         }
         #endregion
 
@@ -83,14 +73,14 @@ namespace TowerBlocks
         private void Loop_timer_Tick(object sender, EventArgs e)
         {
             bu_Build.Enabled = true;
-            if (TowerClass.WasThereFirstBlock)
+            if (TowerClass.NotYetCreatedFirstBlock)
             {
                 CreatingNewBlock();
-                TowerClass.Height = Height - TowerClass.Blocks[TowerClass.n].Height;
+                TowerClass.Height = Height - TowerClass.LastBlock.Height;
+                TowerClass.NotYetCreatedFirstBlock = false;
             }
-            TowerClass.WasThereFirstBlock = false;
-            TowerClass.Blocks[TowerClass.n].Left += TowerClass.Speed;
-            if (TowerClass.Blocks[TowerClass.n].Left <= 200 | TowerClass.Blocks[TowerClass.n].Left >= 500)
+            TowerClass.LastBlock.Left += TowerClass.Speed;
+            if (TowerClass.LastBlock.Left <= 200 | TowerClass.LastBlock.Left >= 500)
             {
                 TowerClass.Speed *= -1;
             }
@@ -117,9 +107,9 @@ namespace TowerBlocks
             }
             else
             {
-                Update.Load();
-                Update.money += 15;
-                Update.save();
+                updates.Load();
+                updates.money += 15;
+                updates.save();
                 CreatingNewBlock();
                 loop_timer.Start();
             }

@@ -15,12 +15,22 @@ namespace TowerBlocks
     class Block
     {
         #region Fields
-        private const string ImageFile = "../../images/towerblock.png";
+        private const string IMAGE_FILE_PATH = "../../images/towerblock.png";
         /// <summary>
         /// A list where all blocks're stored
         /// </summary>
         public List<PictureBox> Blocks { get; set; }
-        public int n { get; set; }
+        /// <summary>
+        /// The block latest created
+        /// !notice it can reference a block in 2 states:
+        /// in the air and
+        /// on the top of the tower
+        /// </summary>
+        public PictureBox LastBlock
+        {
+            get { return Blocks[NumberOfBlocks]; }
+        }
+        public int NumberOfBlocks { get; set; }
         public int Height { get; set; }
         /// <summary>
         /// It's true if the block's not dropped well
@@ -29,7 +39,7 @@ namespace TowerBlocks
         /// <summary>
         /// After the first block's dropped, it'll be false
         /// </summary>
-        public bool WasThereFirstBlock { get; set; }
+        public bool NotYetCreatedFirstBlock { get; set; }
         public int Speed;
         #endregion
 
@@ -39,9 +49,9 @@ namespace TowerBlocks
         public Block()
         {
             Blocks = new List<PictureBox>();
-            n = 0;
+            NumberOfBlocks = 0;
             Missed = false;
-            WasThereFirstBlock = true;
+            NotYetCreatedFirstBlock = true;
             Speed = 8;
         }
 
@@ -54,7 +64,7 @@ namespace TowerBlocks
             PictureBox Variable;
             Variable = new PictureBox();
             Variable.Parent = Game.ActiveForm;
-            Variable.Image = Image.FromFile(ImageFile);
+            Variable.Image = Image.FromFile(IMAGE_FILE_PATH);
             Variable.Left = 350;
             Variable.Top = 0;
             Variable.Height = 80;
@@ -68,12 +78,12 @@ namespace TowerBlocks
         /// </summary>
         public void Drop()
         {
-            while (Blocks[n].Top+Blocks[n].Height<Height)
+            while (LastBlock.Top + LastBlock.Height < Height)
             {
-                Blocks[n].Top += 5;
+                LastBlock.Top += 5;
                 Thread.Sleep(7);
             }
-            Height -= Blocks[n].Height;
+            Height -= LastBlock.Height;
             
         }
 
@@ -82,13 +92,11 @@ namespace TowerBlocks
         /// </summary>
         public bool BadlyDropped()
         {
-            if (Blocks[n].Left-Blocks[n-1].Left>50 || Blocks[n].Left-Blocks[n-1].Left<-50)
-            {
-                return true;
-            }
-            n++;
-            return false;
-            
+            const int LIMIT_OF_X_DIFF = 50;
+            int currentLeft = LastBlock.Left;
+            int prevLeft = Blocks[NumberOfBlocks - 1].Left;
+
+            return Math.Abs(currentLeft - prevLeft) > LIMIT_OF_X_DIFF;
         }
     }
 }
